@@ -7,7 +7,7 @@ function User({userDate}) {
   const updateForm = (newState) => {
     setForm([...newState]);
     userDate(newState)
-    console.log(form)
+    
   }
   return (
       <>

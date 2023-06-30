@@ -1,13 +1,14 @@
 
 import React, { useState } from 'react'
 import Recode from './Recode'
+import { v4 as uuidv4 } from 'uuid';
+import { v4 } from 'uuid';
 function TableBody({ row }) {
-  console.log(`Is Cord Array ? ${row}`)
   return (
       <>
           <tbody>
         {
-          row.map((v)=><Recode value={v}/>)
+          row.map((v)=><Recode key={v4()} value={v}/>)
              } 
           </tbody>
       </>

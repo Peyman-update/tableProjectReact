@@ -3,7 +3,10 @@ import FiledName from "./Filed/FiledName";
 import FiledFamily from "./Filed/FiledFamily";
 import FiledJob from "./Filed/FiledJob";
 import FiledAge from "./Filed/FiledAge";
-import FiledGender from "./Filed/FiledGender";
+// import FiledGender from "./Filed/Gender/FiledGender";
+import Male from "./Filed/Gender/Male";
+import Female from "./Filed/Gender/Female";
+import Other from "./Filed/Gender/Other";
 import BtnSubmit from "./BtnSubmit";
 
 function Form({ getdate }) {
@@ -12,33 +15,50 @@ function Form({ getdate }) {
   const [family, setFamily] = useState("");
   const [job, setJob] = useState("");
   const [age, setAge] = useState("");
-  const [gender, setGender] = useState(false);
+  const [gender, setGender] = useState("Yes");
 
   const Date = (newState) => {
     setData([...newState]);
     getdate(newState);
-  }
+  };
 
-  console.log(data);
   const handleSubmit = (e) => {
     e.preventDefault();
-
     data.push({
       name: name,
       family: family,
       job: job,
       age: age,
-      gender: "female",
+      gender: gender,
     });
-
-    Date(data)
-    
-
+    NullFiled(data);
+    Date(data);
     setName("");
     setFamily("");
     setJob("");
     setAge("");
     setGender("");
+  };
+
+  const handleChange = (e) => {
+    setGender(e.target.value);
+  };
+
+  const NullFiled = (data) => {
+   
+    data.forEach((Filed)=>{
+      Filed.name === "" || Filed.family === "" || Filed.job ==="" 
+      || Filed.age === "" || Filed.gender === "" ? EmptyArray() : console.log("Hello User");
+     
+      
+      
+    })
+      
+  };
+
+  const EmptyArray = () => {
+    alert("Please Enter Your Info");
+      data.pop()
   };
 
   return (
@@ -48,11 +68,17 @@ function Form({ getdate }) {
         <FiledFamily value={{ family: family, setFamily: setFamily }} />
         <FiledJob value={{ job: job, setJob: setJob }} />
         <FiledAge value={{ age: age, setAge: setAge }} />
-        <FiledGender value={{ value: false, title: "Male" }} />
-        <FiledGender value={{ value: false, title: "Female" }} />
-        <FiledGender value={{ value: false, title: "Other" }} />
-        <BtnSubmit />
+        <Male value={{ value: gender, title: "Male", Change: handleChange }} />
+        <Female
+          value={{ value: gender, title: "Female", Change: handleChange }}
+        />
+        <Other
+          value={{ value: gender, title: "Other", Change: handleChange }}
+        />
+        <BtnSubmit value={"Send"} />
       </form>
+      <BtnSubmit value={"Search"} />
+      <BtnSubmit value={"Update"} />
     </>
   );
 }

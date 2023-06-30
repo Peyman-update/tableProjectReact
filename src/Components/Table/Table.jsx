@@ -8,11 +8,14 @@ function Table({ disPlay }) {
       <>
           <table className='table table-dark text-center'>
               <thead>
-                  <TableHeader title={"Name"}/>
+                <tr>
+                <TableHeader title={"Name"}/>
                   <TableHeader title={"Family"}/>
                   <TableHeader title={"Age"}/>
                   <TableHeader title={"Job"}/>
                   <TableHeader title={"Gender"}/>
+                </tr>
+                
               </thead>
               <TableBody row={disPlay} />
           </table>

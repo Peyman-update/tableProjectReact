@@ -7,7 +7,7 @@ function Main() {
   const [state1, setState1] = useState([])
   const updateState1 = (newState) => {
     setState1([...newState])
-    console.log(state1);
+   
  }
   return (
     <>
