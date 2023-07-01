@@ -77,8 +77,6 @@ function Form({ getdate }) {
         />
         <BtnSubmit value={"Send"} />
       </form>
-      <BtnSubmit value={"Search"} />
-      <BtnSubmit value={"Update"} />
     </>
   );
 }

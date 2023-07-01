@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import TableHeader from './TableHeader'
 import TableBody from './TableBody'
 
-function Table({ disPlay }) {
+function Table({ disPlay , data }) {
 
   return (
       <>
@@ -17,7 +17,7 @@ function Table({ disPlay }) {
                 </tr>
                 
               </thead>
-              <TableBody row={disPlay} />
+              <TableBody data={data} row={disPlay} />
           </table>
       </>
   )
